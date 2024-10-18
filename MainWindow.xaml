@@ -1,0 +1,56 @@
+﻿<Window x:Class="倍福读取Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:倍福读取Demo"
+        mc:Ignorable="d"
+        
+        Title="MainWindow" Height="500" Width="800">
+
+
+
+    <Grid ShowGridLines ="false" Margin="0,0,-60,-47">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="233*"/>
+            <ColumnDefinition Width="208*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock FontSize="20" Name="IP" Text="IP:" VerticalAlignment="Center" HorizontalAlignment="Center" Height="26" Width="20"  />
+        <TextBox FontSize="20" Grid.Column="1" Name="inputIP" Text="127.0.0.1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="28" Width="91"  />
+        <TextBlock FontSize="20" Grid.Column="2" Name="Port" Text="Port:" VerticalAlignment="Center" HorizontalAlignment="Left" Height="28" Width="44" Margin="116,10,0,0"  />
+        <TextBox FontSize="20" Grid.Column="3" Name="InputPort" Text="49320" VerticalAlignment="Center" HorizontalAlignment="Left" Height="28" Width="90"  />
+        <Button Grid.Column="4" Content="断开连接" Name="DisConnect" HorizontalAlignment="Left" Width="60" Margin="5,5,0,5" Click="DisConnect_Click" FontSize="11"/>
+        <Button Grid.Column="4" Content="连接" Name="Connect" HorizontalAlignment="Center" Width="60" Margin="0,5,0,5" Click="Connect_Click" FontSize="11"/>
+        <DataGrid Grid.Row="1" x:Name="DataBeifu" Grid.ColumnSpan="4" Margin="10,10,10,59" Grid.RowSpan="2" AutoGenerateColumns="False" Background="LightGray" 
+                 CanUserAddRows="True" FontWeight="Bold" BorderBrush="#FF51ABE7" Foreground="#FF342D2D" 
+                  >
+
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="100*" Header="名称" Binding="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  />
+                <DataGridTextColumn  Header="地址" Width="100*"  Binding="{Binding Addr,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn  Header="数据类型" Width="100*" Binding="{Binding Type,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn  Header="显示值" Width="100*" Binding="{Binding Value,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Grid.Column="4" Content="导入EXCEL" x:Name="InportExcel" HorizontalAlignment="Left" Width="60" Margin="5,10,0,193" Click="InportExcel_Click" Grid.Row="1" FontSize="11"/>
+        <Button Grid.Column="4" Content="导出EXCEL" x:Name="ExportExcel" HorizontalAlignment="Center" Width="60" Margin="0,11,0,193" Click="ExportExcel_Click" Grid.Row="1" FontSize="11"/>
+
+
+
+
+
+    </Grid>
+
+</Window>
